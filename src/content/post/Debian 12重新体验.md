@@ -2,12 +2,13 @@
 title: Debian 12重新体验
 description: 无描述
 publishDate: 2024-01-31
-updatedDate: 18 Oct 2025
+updatedDate: "2025-10-18"
 tags: 
 - Linux
-- 未完结
 - Debian
 - Blog
+draft: true
+slug: debian12-on-laptop
 ---
 
 
