@@ -4,7 +4,7 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@tailwindcss/vite";
-import { defineConfig, envField } from "astro/config";
+import { defineConfig, envField, passthroughImageService } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
@@ -18,11 +18,13 @@ import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add adm
 import { remarkGithubCard } from "./src/plugins/remark-github-card";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 import { expressiveCodeOptions, siteConfig } from "./src/site.config";
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.url,
 	image: {
+		service: passthroughImageService(),
 		domains: ["webmention.io"],
 	},
 	integrations: [
@@ -99,6 +101,7 @@ export default defineConfig({
 			WEBMENTION_PINGBACK: envField.string({ context: "client", access: "public", optional: true }),
 		},
 	},
+	adapter: netlify()
 });
 
 function rawFonts(ext: string[]) {
