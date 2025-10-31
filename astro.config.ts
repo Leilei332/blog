@@ -24,7 +24,6 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
 	site: siteConfig.url,
 	image: {
-		service: passthroughImageService(),
 		domains: ["webmention.io"],
 	},
 	integrations: [
