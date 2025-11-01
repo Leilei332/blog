@@ -2,12 +2,10 @@
 title: Debian 12重新体验
 description: 无描述
 publishDate: 2024-01-31
-updatedDate: "2025-10-18"
+updatedDate: "2025-11-01"
 tags: 
 - Linux
 - Debian
-- Blog
-draft: true
 slug: debian12-on-laptop
 ---
 
@@ -200,19 +198,18 @@ sudo apt install libimobiledevice-utils libimobiledevice-dev libgpod-dev
 里面提到的Ayatana就是实现指示器功能的东西，当MATE桌面检测到Ayatana的服务时就会禁用通知栏的图标，解决方法就是到控制中心——启动应用程序，将那堆名称为*Ayatana Indicator*的启动项取消选择，重启。
 
 ## 显示Unicode CJK拓展区的字符
-这个需求并不是特别大
+这个需求并不是特别重要
 
 1. 安装`fonts-babelstone-han`这个包
 2. 到<http://cheonhyeong.com/Simplified/download.html>下载天衍全字库
 
 # 软件
-## 配置Backports软件源
-Debian的稳定版本的默认软件源中的软件包版本比较旧，而`debian-backports`软件源
 
 ## ~~Syncthing~~
 曾经在用的文件同步工具，现在不用了。
 
 ## mpv
+目前只需这些配置：
 
 ```ini
 audio-pitch-correction=no
@@ -265,7 +262,9 @@ normal = { family = "等距更纱黑体 SC", style = "Regular" }
 ```
 
 # Wezterm
-目前
+目前WezTerm虽然不在官方仓库中，但有官方debian包。此终端自带flexoki主题。
+
+使用lua文件配置：
 
 ```lua
 -- ~/.config/wezterm/wezterm.lua
@@ -281,11 +280,10 @@ config.font = wezterm.font '等距更纱黑体 SC'
 
 -- Finally, return the configuration to wezterm:
 return config
-
 ```
 
 ## ~~Kitty~~
-**由于Kitty内存占用较大，而Alacritty的某些问题在换到fish之后不存在了，所以现在用Alacritty了。**
+~~**由于Kitty内存占用较大，而Alacritty的某些问题在换到fish之后不存在了，所以现在用Alacritty了**~~。目前换到了WezTerm。
 
 在不使用alacrity后换的一个终端，目前用的最顺手的（主要原因是解决了alacrity和mate terminal的无法正确适配zsh-auto suggestions的问题）。
 
@@ -332,8 +330,6 @@ if has("gui")
     colorscheme solarized
 endif
 ```
-
-## fzf
 
 [^1]: <https://bbs.archlinux.org/viewtopic.php?id=273679>
 
